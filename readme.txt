@@ -6,3 +6,7 @@ AispTools_program_LandInformationTool
 新增函数:Aisp-ZoomObject.
 2.修改窗体NewDJQY,使用权地类代码:072农村宅基地,修改为:0702农村宅基地
 3.c:AispTools_ZJ/NewDJQY/OK#OnClicked 修改事件 变量 zdh 表内容为 072修改为0702
+
+2020年11月23日 21点49分
+1.修改在界址线被写入属性后,将界址线对象放入"JZD"图层
+2.修改在窗体载入cad时,如果图形不存在"JZD"图层.则创建一个"JZD"图层

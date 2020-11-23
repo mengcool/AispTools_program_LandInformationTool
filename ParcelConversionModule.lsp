@@ -1074,17 +1074,20 @@
 	(setq errorFlag2(vl-catch-all-apply 'vlax-safearray-fill (list Data (list "QHDM" QHDM_number "SOUTH" "300000" parcel_number obligee land_type))))
 	
 	;;;写入扩展属性
-	(if (and 
-	        (not (vl-catch-all-error-p errorFlag1))
-			(not (vl-catch-all-error-p errorFlag2))
+	(if (and
+	      (not (vl-catch-all-error-p errorFlag1))
+	      (not (vl-catch-all-error-p errorFlag2))
 	    )
-		(progn
-		    (vla-setxdata vlaName DataType Data)
-			;;;设置对象颜色为红色
-            (vla-put-Color vlaName acRed)
-			(setq successful T)
-		)
+	  (progn
+	    (vla-setxdata vlaName DataType Data)
+;;;设置对象颜色为红色
+	    (vla-put-Color vlaName acRed)
+	    ;;;设置权属线图层至"JZD"
+	    (vla-put-layer vlaName "JZD")
+	    (setq successful T)
+	  )
 	)
+
 
     successful
 )
