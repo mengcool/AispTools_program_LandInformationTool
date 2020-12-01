@@ -283,7 +283,7 @@
   )
 )
 
-;;;函数名称: Aisp-AutoLoadODclArx
+;;;函数名称: +
 ;;;参数: RuntimePath (OpenDCL运行库存储路径) 为 nil 时,在CAD支持路径搜索
 ;;;返回值: loaded (1 3 表示加载成功 2 表示加载失败)
 ;;;自动加载OpenDcl函数
@@ -302,7 +302,7 @@
 	      (setq loaded "2")
 	   )
 	  )
-	  ((or (= "17" v) (= "18" v) (= "19" v))
+	  ((or (= "17" v) (= "18" v) (= "19" v) (= "20" v))
 	   (if (= "x86" (getenv "PROCESSOR_ARCHITECTURE")) ;_ 32位系统
 	     (if (setq fnn
 			(strcat RuntimePath "\\" (setq fn (strcat "OpenDCL." v ".arx")))

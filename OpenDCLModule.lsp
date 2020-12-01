@@ -180,12 +180,14 @@
     (progn
 ;;;      (setq acadapplic (vlax-get-acad-object))
 ;;;      (vla-ZoomAll acadapplic)	;;;缩放全局窗口
-
+      (dcl-Control-SetEnabled AispTools_ZJ/MainFrame/Tree1_Transform nil)	;;;设置 "开始转换" 按钮为不可用
+      (dcl-Control-SetEnabled AispTools_ZJ/MainFrame/Tree1_End_Check nil)	;;;设置 "转换前最后检查" 按钮为不可用
+      
       (setq allDJQYList (Aisp-GetStrcatLabelList "DJQY"))
       (setq allParcelList (mapcar '(lambda (x) (Aisp-GetStrcatLabelList x)) allDJQYList))
       (setq counter 0)
       (foreach DJQYItem allDJQYList
-	(setq strList (Aisp-Separator-Substr (nth 0 allDJQYList) ","))
+	(setq strList (Aisp-Separator-Substr DJQYItem ","))
 	(setq QHDM_number (substr (nth 0 strList) 1 6))	;;;区号代码
 	(setq tempParcel_number (substr (nth 0 strList) 7))	;;;宗地号前 8 位
 	(setq land_type (nth 1 strList)) 	;;;土地类型
@@ -725,6 +727,6 @@
 
 (dcl-Form-Show AispTools_ZJ/MainFrame)
 (if (dcl-Form-IsActive AispTools_ZJ/MainFrame)
-  (prompt "\nAispTools 已成功加载! 	-- 2020.6.8	By:const")
-  (prompt "\nError: 未能成功加载! 	-- 2020.6.8	By:const")
+  (prompt "\nAispTools 已成功加载! 	-- 2020.12.1	By:const")
+  (prompt "\nError: 未能成功加载! 	-- 2020.12.1	By:const")
 )
